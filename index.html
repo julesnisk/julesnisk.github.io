@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Producer | Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Smooth transition for theme switching */
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 antialiased min-h-screen flex flex-col selection:bg-zinc-300 dark:selection:bg-zinc-700">
+
+    <!-- Navigation -->
+    <nav class="w-full max-w-4xl mx-auto px-6 py-8 flex justify-between items-center">
+        <a href="#" class="text-xl font-semibold tracking-tight">JR.</a>
+        
+        <div class="flex items-center gap-6">
+            <a href="#about" class="text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 transition-colors">About</a>
+            <a href="#portfolio" class="text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 transition-colors">Portfolio</a>
+            <a href="#services" class="text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 transition-colors">Services</a>
+            <a href="#contact" class="text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 transition-colors">Contact</a>
+            
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                <i data-lucide="sun" id="icon-sun" class="w-5 h-5 hidden dark:block"></i>
+                <i data-lucide="moon" id="icon-moon" class="w-5 h-5 block dark:hidden"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow w-full max-w-4xl mx-auto px-6">
+        
+        <!-- Bio Section -->
+        <section id="bio" class="py-24 md:py-32">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                Jules Reuter
+            </h1>
+            <p class="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
+                Music, Sound Design, Mixing & Mastering for those with bold creative visions. Tailored to you and your projects, I will quickly deliver a range of services including but not limited to full mixdowns and masters, original scores, SFX design, audio processing and editing. I pride myself on authenticity, efficiency, and quality; use my services to turn your creative visions into a reality.
+            </p>
+            <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-500 max-w-2xl">
+                Get in contact for more information about what I offer, pricing and anything else you might need to know!
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row sm:items-center gap-6">
+                <a href="#contact" class="inline-flex items-center gap-2 text-sm font-medium border-b border-zinc-900 dark:border-zinc-50 pb-1 hover:text-zinc-500 dark:hover:text-zinc-400 hover:border-zinc-500 dark:hover:border-zinc-400 transition-all w-max">
+                    Get in touch <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </a>
+
+                <!-- Social Icons -->
+                <div class="flex items-center gap-5 text-zinc-400">
+                    <a href="https://www.instagram.com/julesnisk/" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors" aria-label="Instagram">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="https://nisk.bandcamp.com/" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors" aria-label="Bandcamp">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z"/></svg>
+                    </a>
+                    <a href="https://open.spotify.com/artist/2EYNK2kGndGSLbSaBU2L5p?si=H5gKFdkyQKqWDPAODY6olQ" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors" aria-label="Spotify">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.24 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.6.18-1.2.72-1.38 4.2-1.26 11.28-1.02 15.72 1.62.539.3.719 1.02.419 1.56-.239.54-.959.72-1.559.3z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 border-t border-zinc-200 dark:border-zinc-800">
+            <h2 class="text-2xl font-semibold mb-8 tracking-tight">About</h2>
+            <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+                <div class="w-full md:w-1/2">
+                    <div class="aspect-[3/2] w-full overflow-hidden border border-zinc-200 dark:border-zinc-800">
+                        <img src="CORNER.jpg" alt="Jules Reuter" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/6240x4160/e2e8f0/64748b?text=Image+Not+Found';">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <p class="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                        Hey! My name is Jules aka Nisk and I am an audio producer and engineer based in Bristol. I have a background in producing electronic music of all sorts of genres spanning from Dubstep to Garage to Jungle to anything in between. Most notably, I was awarded the number 1 stop on Keymag's 100 Best Garage Track of 2024 for a remix of a tune called 'Entreat' by the wicked experimental German artist 'Barcode'. Alongside this, I am a mixing and mastering engineer and produce audio for visual media. I love working with people who have strong creative visions and strive to make those visions come alive, so contact me to help with audio on your projects!
+                    </p>
+                    <a href="https://www.keymag.co.uk/nukg-monthly/top-100-uk-garage-tunes-of-2024" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 text-sm font-medium border-b border-zinc-900 dark:border-zinc-50 pb-1 hover:text-zinc-500 dark:hover:text-zinc-400 hover:border-zinc-500 dark:hover:border-zinc-400 transition-all w-max">
+                        Read the Keymag Article <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 border-t border-zinc-200 dark:border-zinc-800">
+            <h2 class="text-2xl font-semibold mb-16 tracking-tight">Selected Works</h2>
+
+            <!-- Subsection: Mixing & Mastering -->
+            <div class="mb-20">
+                <h3 class="text-sm font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-8">Mixing & Mastering</h3>
+                
+                <div class="grid gap-6 sm:grid-cols-2">
+                    <!-- Item 1 -->
+                    <a href="https://scorchedearthmusic.bandcamp.com/" target="_blank" rel="noopener noreferrer" class="group block cursor-pointer p-6 border border-zinc-200 dark:border-zinc-800 rounded-2xl hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors">
+                        <div class="flex justify-between items-start mb-4">
+                            <i data-lucide="disc-3" class="w-6 h-6 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-50 transition-colors"></i>
+                            <span class="text-xs font-medium text-zinc-500">2026</span>
+                        </div>
+                        <h4 class="text-lg font-medium mb-1">Scorched Earth Records</h4>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400">Mastering</p>
+                    </a>
+
+                    <!-- Item 2 -->
+                    <a href="https://nisk.bandcamp.com/track/nisk-hiss-original-mix" target="_blank" rel="noopener noreferrer" class="group block cursor-pointer p-6 border border-zinc-200 dark:border-zinc-800 rounded-2xl hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors">
+                        <div class="flex justify-between items-start mb-4">
+                            <i data-lucide="disc-3" class="w-6 h-6 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-50 transition-colors"></i>
+                            <span class="text-xs font-medium text-zinc-500">Track</span>
+                        </div>
+                        <h4 class="text-lg font-medium mb-1">Hiss</h4>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400">Full Mix and Master</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Subsection: Film & Video -->
+            <div class="mb-20">
+                <h3 class="text-sm font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-8">Film & Video</h3>
+                
+                <div class="grid gap-6 sm:grid-cols-2">
+                    <!-- Item 1 -->
+                    <a href="https://www.youtube.com/watch?v=xG2HraJAXEo&t=1s" target="_blank" rel="noopener noreferrer" class="group block cursor-pointer p-6 border border-zinc-200 dark:border-zinc-800 rounded-2xl hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors">
+                        <div class="flex justify-between items-start mb-4">
+                            <i data-lucide="film" class="w-6 h-6 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-50 transition-colors"></i>
+                            <span class="text-xs font-medium text-zinc-500">Short Film</span>
+                        </div>
+                        <h4 class="text-lg font-medium mb-1">Over & Over</h4>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400">Score and Creative Audio Processing</p>
+                        <p class="text-xs text-zinc-400 dark:text-zinc-500 mt-2">Click for video</p>
+                    </a>
+
+                    <!-- Item 2 -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="group block cursor-pointer p-6 border border-zinc-200 dark:border-zinc-800 rounded-2xl hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors">
+                        <div class="flex justify-between items-start mb-4">
+                            <i data-lucide="film" class="w-6 h-6 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-50 transition-colors"></i>
+                            <span class="text-xs font-medium text-zinc-500">In Progress</span>
+                        </div>
+                        <h4 class="text-lg font-medium mb-1">Stray Dog Short Film</h4>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400">Full Score and Sound Design</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Subsection: Personal Portfolio -->
+            <div>
+                <h3 class="text-sm font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-8">Personal Portfolio</h3>
+                
+                <div class="grid gap-6 sm:grid-cols-2">
+                    <!-- Item 1 -->
+                    <a href="https://nisk.bandcamp.com/?search_item_id%3D1996686103%26search_item_type%3Db%26search_match_part%3D%253F%26search_page_id%3D5370651499%26search_page_no%3D0%26search_rank%3D1=" target="_blank" rel="noopener noreferrer" class="group block cursor-pointer p-6 border border-zinc-200 dark:border-zinc-800 rounded-2xl hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors">
+                        <div class="flex justify-between items-start mb-4">
+                            <i data-lucide="disc" class="w-6 h-6 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-50 transition-colors"></i>
+                        </div>
+                        <h4 class="text-lg font-medium mb-1">Bandcamp</h4>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400">Full bandcamp discography available for purchase.</p>
+                    </a>
+
+                    <!-- Item 2 -->
+                    <a href="https://nativetelevision.bandcamp.com/album/ntv008-mavros-mesopolonica-nisk" target="_blank" rel="noopener noreferrer" class="group block cursor-pointer p-6 border border-zinc-200 dark:border-zinc-800 rounded-2xl hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors">
+                        <div class="flex justify-between items-start mb-4">
+                            <i data-lucide="disc" class="w-6 h-6 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-50 transition-colors"></i>
+                            <span class="text-xs font-medium text-zinc-500">2026</span>
+                        </div>
+                        <h4 class="text-lg font-medium mb-1">NTV008</h4>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400">2 track vinyl release with Mavros and Mesopolonica released on Native Television Records.</p>
+                    </a>
+
+                    <!-- Item 3 -->
+                    <a href="https://scorchedearthmusic.bandcamp.com/" target="_blank" rel="noopener noreferrer" class="group block cursor-pointer p-6 border border-zinc-200 dark:border-zinc-800 rounded-2xl hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors">
+                        <div class="flex justify-between items-start mb-4">
+                            <i data-lucide="disc" class="w-6 h-6 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-50 transition-colors"></i>
+                            <span class="text-xs font-medium text-zinc-500">2025</span>
+                        </div>
+                        <h4 class="text-lg font-medium mb-1">Scorched Earth Records</h4>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400">Record Label Est. 2025</p>
+                    </a>
+
+                    <!-- Item 4 -->
+                    <a href="https://open.spotify.com/album/1JDulqPEefWJXuyPeVmTnw?si=gR_neKJxRXSCW-pI97GW4w" target="_blank" rel="noopener noreferrer" class="group block cursor-pointer p-6 border border-zinc-200 dark:border-zinc-800 rounded-2xl hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors">
+                        <div class="flex justify-between items-start mb-4">
+                            <i data-lucide="disc" class="w-6 h-6 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-50 transition-colors"></i>
+                            <span class="text-xs font-medium text-zinc-500">EP</span>
+                        </div>
+                        <h4 class="text-lg font-medium mb-1">Gunman EP</h4>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400">Self-released 4 track EP. Released both digitally and physically through a small run of 30 records.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 border-t border-zinc-200 dark:border-zinc-800">
+            <h2 class="text-2xl font-semibold mb-16 tracking-tight">Services</h2>
+            
+            <!-- Subsection: Film & Video -->
+            <div class="mb-16">
+                <h3 class="text-sm font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-6">Film & Video</h3>
+                <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-8">
+                    Get in contact to work on your film or video!
+                </p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors flex items-center gap-3">
+                        <i data-lucide="film" class="w-4 h-4 text-zinc-400"></i>
+                        <span class="text-sm font-medium">Scoring</span>
+                    </div>
+                    <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors flex items-center gap-3">
+                        <i data-lucide="music" class="w-4 h-4 text-zinc-400"></i>
+                        <span class="text-sm font-medium">Music</span>
+                    </div>
+                    <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors flex items-center gap-3">
+                        <i data-lucide="radio" class="w-4 h-4 text-zinc-400"></i>
+                        <span class="text-sm font-medium">Sound Design</span>
+                    </div>
+                    <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors flex items-center gap-3">
+                        <i data-lucide="zap" class="w-4 h-4 text-zinc-400"></i>
+                        <span class="text-sm font-medium">SFX Design</span>
+                    </div>
+                    <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors flex items-center gap-3">
+                        <i data-lucide="scissors" class="w-4 h-4 text-zinc-400"></i>
+                        <span class="text-sm font-medium">Audio Editing</span>
+                    </div>
+                    <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors flex items-center gap-3">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-zinc-400"></i>
+                        <span class="text-sm font-medium">Audio Cleanup/Denoising</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subsection: Mixing & Mastering -->
+            <div class="mb-16">
+                <h3 class="text-sm font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-8">Mixing & Mastering</h3>
+                
+                <div class="border-y border-zinc-200 dark:border-zinc-800">
+                    <!-- Desktop Header Row -->
+                    <div class="hidden md:grid md:grid-cols-12 gap-8 py-4 px-4 border-b border-zinc-200 dark:border-zinc-800 text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+                        <div class="col-span-6">Service & Description</div>
+                        <div class="col-span-3">Pricing</div>
+                        <div class="col-span-3">Delivery Time</div>
+                    </div>
+
+                    <div class="divide-y divide-zinc-200 dark:divide-zinc-800">
+                        <!-- Service 1 -->
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-6 px-4 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors rounded-lg md:rounded-none -mx-4 md:mx-0">
+                            <div class="md:col-span-6">
+                                <h3 class="flex items-center gap-3 text-base font-medium text-zinc-900 dark:text-zinc-50 mb-2">
+                                    <i data-lucide="sliders" class="w-4 h-4 text-zinc-400"></i> Full Mixdown
+                                </h3>
+                                <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                                    Complete multitrack mixdown tailored to your creative vision.
+                                </p>
+                            </div>
+                        <div class="md:col-span-3 text-sm text-zinc-600 dark:text-zinc-400">
+                            <span class="md:hidden text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-1 mt-2">Pricing</span>
+                            <span class="block">£40 for 1</span>
+                            <span class="block mt-1">£120 for 4</span>
+                        </div>
+                        <div class="md:col-span-3 text-sm text-zinc-600 dark:text-zinc-400">
+                            <span class="md:hidden text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-1 mt-2">Delivery Time</span>
+                            2-4 days depending on number of tracks
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-6 px-4 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors rounded-lg md:rounded-none -mx-4 md:mx-0">
+                        <div class="md:col-span-6">
+                            <h3 class="flex items-center gap-3 text-base font-medium text-zinc-900 dark:text-zinc-50 mb-2">
+                                <i data-lucide="activity" class="w-4 h-4 text-zinc-400"></i> Digital Master
+                            </h3>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                                Full master designed and ready to be released on digital mediums e.g. Spotify or Bandcamp.
+                            </p>
+                        </div>
+                        <div class="md:col-span-3 text-sm text-zinc-600 dark:text-zinc-400">
+                            <span class="md:hidden text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-1 mt-2">Pricing</span>
+                            £15
+                        </div>
+                        <div class="md:col-span-3 text-sm text-zinc-600 dark:text-zinc-400">
+                            <span class="md:hidden text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-1 mt-2">Delivery Time</span>
+                            Next day
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-6 px-4 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors rounded-lg md:rounded-none -mx-4 md:mx-0">
+                        <div class="md:col-span-6">
+                            <h3 class="flex items-center gap-3 text-base font-medium text-zinc-900 dark:text-zinc-50 mb-2">
+                                <i data-lucide="speaker" class="w-4 h-4 text-zinc-400"></i> Club Master
+                            </h3>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                                Full master to bring the energy to your tracks. Your tracks will sound loud and be locked and loaded for clubs and events.
+                            </p>
+                        </div>
+                        <div class="md:col-span-3 text-sm text-zinc-600 dark:text-zinc-400">
+                            <span class="md:hidden text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-1 mt-2">Pricing</span>
+                            £15
+                        </div>
+                        <div class="md:col-span-3 text-sm text-zinc-600 dark:text-zinc-400">
+                            <span class="md:hidden text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-1 mt-2">Delivery Time</span>
+                            Next day
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-6 px-4 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors rounded-lg md:rounded-none -mx-4 md:mx-0">
+                        <div class="md:col-span-6">
+                            <h3 class="flex items-center gap-3 text-base font-medium text-zinc-900 dark:text-zinc-50 mb-2">
+                                <i data-lucide="disc-3" class="w-4 h-4 text-zinc-400"></i> Vinyl Master
+                            </h3>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                                Softer master designed for vinyl releases. This master will take care of your tracks, giving them the treatment they need for physical releases.
+                            </p>
+                        </div>
+                        <div class="md:col-span-3 text-sm text-zinc-600 dark:text-zinc-400">
+                            <span class="md:hidden text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-1 mt-2">Pricing</span>
+                            £15
+                        </div>
+                        <div class="md:col-span-3 text-sm text-zinc-600 dark:text-zinc-400">
+                            <span class="md:hidden text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-1 mt-2">Delivery Time</span>
+                            Next day
+                        </div>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-6 px-4 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors rounded-lg md:rounded-none -mx-4 md:mx-0">
+                        <div class="md:col-span-6">
+                            <h3 class="flex items-center gap-3 text-base font-medium text-zinc-900 dark:text-zinc-50 mb-2">
+                                <i data-lucide="layers" class="w-4 h-4 text-zinc-400"></i> Mastering Package
+                            </h3>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                                Select a combination of mastering options for each track depending on what you need.
+                            </p>
+                        </div>
+                        <div class="md:col-span-3 text-sm text-zinc-600 dark:text-zinc-400">
+                            <span class="md:hidden text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-1 mt-2">Pricing</span>
+                            <span class="block">2 for £20</span>
+                            <span class="block mt-1">3 for £30</span>
+                        </div>
+                        <div class="md:col-span-3 text-sm text-zinc-600 dark:text-zinc-400">
+                            <span class="md:hidden text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-1 mt-2">Delivery Time</span>
+                            2 days
+                        </div>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-6 px-4 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors rounded-lg md:rounded-none -mx-4 md:mx-0">
+                        <div class="md:col-span-6">
+                            <h3 class="flex items-center gap-3 text-base font-medium text-zinc-900 dark:text-zinc-50 mb-2">
+                                <i data-lucide="sparkles" class="w-4 h-4 text-zinc-400"></i> Full Mix and Mastering Package
+                            </h3>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                                Full multitrack mixdown with all 3 mastering options.
+                            </p>
+                        </div>
+                        <div class="md:col-span-3 text-sm text-zinc-600 dark:text-zinc-400">
+                            <span class="md:hidden text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-1 mt-2">Pricing</span>
+                            £60 per track
+                        </div>
+                        <div class="md:col-span-3 text-sm text-zinc-600 dark:text-zinc-400">
+                            <span class="md:hidden text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-1 mt-2">Delivery Time</span>
+                            3-5 days depending on number of tracks
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 border-t border-zinc-200 dark:border-zinc-800">
+            <h2 class="text-2xl font-semibold mb-8 tracking-tight">Contact</h2>
+            <div class="flex flex-col gap-6">
+                <a href="mailto:julesnisk@gmail.com" class="inline-flex items-center gap-3 text-lg hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors w-max">
+                    <i data-lucide="mail" class="w-5 h-5 text-zinc-400"></i> julesnisk@gmail.com
+                </a>
+                <a href="tel:07783126067" class="inline-flex items-center gap-3 text-lg hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors w-max">
+                    <i data-lucide="phone" class="w-5 h-5 text-zinc-400"></i> 07783126067
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-4xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center border-t border-zinc-200 dark:border-zinc-800 text-sm text-zinc-500">
+        <p>© 2026 Jules Reuter. All rights reserved.</p>
+        <div class="flex gap-4 mt-4 md:mt-0">
+            <a href="https://www.instagram.com/julesnisk/" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">Instagram</a>
+            <a href="https://nisk.bandcamp.com/" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">Bandcamp</a>
+            <a href="https://open.spotify.com/artist/2EYNK2kGndGSLbSaBU2L5p?si=H5gKFdkyQKqWDPAODY6olQ" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">Spotify</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved user preference, if any, on load of the website
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle the dark class on the HTML element
+            html.classList.toggle('dark');
+
+            // Save preference to local storage
+            if (html.classList.contains('dark')) {
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                localStorage.setItem('color-theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
